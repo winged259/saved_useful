@@ -1,6 +1,4 @@
 
-apt update
-apt upgrade
 #containerd
 wget https://github.com/containerd/containerd/releases/download/v1.7.6/containerd-1.7.6-linux-amd64.tar.gz
 tar Cxzvf /usr/local containerd-1.7.6-linux-amd64.tar.gz 
@@ -56,4 +54,4 @@ curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSIO
 sudo mkdir -p /etc/systemd/system/kubelet.service.d
 curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSION}/cmd/kubepkg/templates/latest/deb/kubeadm/10-kubeadm.conf" | sed "s:/usr/bin:${DOWNLOAD_DIR}:g" | sudo tee /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl enable --now kubelet
-sudo apt install conntrack
+sudo apt install conntrack -y
